@@ -1,0 +1,53 @@
+import java .util.*;
+public class number
+{
+    static int n,k=0,p=0;
+    public void guess()
+    {
+        Scanner in=new Scanner(System.in);
+        k++;
+         if(k==4)
+         {
+          System.out.println("GAME ENDS!!");
+          System.out.println("NUMBER : "+n);
+          return;
+         }
+        System.out.println("Guess the number");
+         int m=in.nextInt();
+         check(m);
+    }
+    public void check(int m)
+    {
+        Scanner in=new Scanner(System.in);
+        if(m==n)
+        {
+            p=1;
+         System.out.println("Hurray!! YOU WON THE GAME\nCORRECT GUESS");
+        }
+        else 
+        {
+           if(m>n)
+            System.out.println("SORRY!! GUESSED NUMBER IS GREATER");
+           else
+             System.out.println("SORRY!! GUESSED NUMBER IS SMALLER");
+           System.out.println("Enter 1 to \"Continue\" and 2 to\"Quit\"");
+           int j=in.nextInt();
+           if(j==1)
+            guess();
+           else
+            return;
+        }
+        return;
+        
+    }
+    public static void main (String[] args) 
+    {
+         n=(int)(Math.random()*100)+1;
+        number ob=new number();
+        System.out.println("3 Attempts to guess the number");
+        ob.guess();
+        if(k<4&&p==1)
+        System.out.println("GUESSED CORRECT NUMBER IN "+k+" ATTEMPTS");
+        
+    }
+}
